@@ -1,8 +1,9 @@
 <?php
 
-define('LIMIT', 9);
+require_once __DIR__.'/const.php';
 
-$offset = isset($_GET['page']) ? intval($_GET['page']) : 0; 
+$offset = isset($_GET['page']) ? (intval($_GET['page']) - 1) * LIMIT : 0; 
+// echo $offset;
 
 $dsn = 'mysql:host=localhost;dbname=blog';
 $user = 'root';
@@ -20,9 +21,10 @@ $sql = "SELECT posts.*, authors.name, authors.email FROM posts JOIN authors ON p
 
 try {
     $sth = $dbh->prepare($sql);
-    $sth->bindValue(':limit', LIMIT, PDO::PARAM_INT);
     $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $sth->bindValue(':limit', LIMIT, PDO::PARAM_INT);
     $sth->execute();
+    
 } catch (PDOException $e) {
     die("Error! Code: {$e->getCode()}. Message: {$e->getMessage()}".PHP_EOL);
     exit;

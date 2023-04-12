@@ -96,3 +96,13 @@ img{
     color: green;
     cursor: pointer;
 }
+.pagination-wrap{
+    text-align: center;
+    margin: 40px 0;
+}
+.pagination-btn{
+    padding: 5px 10px;
+    color: #0f8be2;
+    border: 1px solid #0f8be2;
+    margin-right: 10px;
+}

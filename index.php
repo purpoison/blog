@@ -8,7 +8,6 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-
     <div class="container">
         <header class="header d-flex">
             <nav class="menu">
@@ -30,10 +29,7 @@
             <?php require_once __DIR__.'/show.php' ?>
         </div>
     </div>
-    <div class="pagination-wrap">
-        <a href="index.php?page=-9" class="pagination-btn">prev</a>
-        <a href="index.php?page=-9" class="pagination-btn">next</a>
-    </div>
+        <?php require_once __DIR__.'/pagination.php'?>
     </div>
 </body>
 </html>

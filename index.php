@@ -31,5 +31,11 @@
     </div>
         <?php require_once __DIR__.'/pagination.php'?>
     </div>
+    <script>
+        let urlString = document.location.search;
+        let pageId = urlString.split('=').pop();
+        let current_btn = document.getElementById(pageId);
+        current_btn.classList.add('active');
+    </script>
 </body>
 </html>

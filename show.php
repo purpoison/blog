@@ -2,6 +2,11 @@
 
 require_once __DIR__.'/const.php';
 
+// 1 ----> 0, 9
+// 2 ----> 9, 9
+// 3 ----> 18, 9
+// 4 ----> 27, 9
+
 $offset = isset($_GET['page']) ? (intval($_GET['page']) - 1) * LIMIT : 0; 
 // echo $offset;
 

@@ -4,7 +4,6 @@
     $dsn = 'mysql:host=localhost;dbname=blog';
     $user = 'root';
     $password = '';
-
     try {
         $dbh = new PDO($dsn, $user, $password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -22,12 +21,21 @@
             $length++;
         }
     }
-    echo $length;
     $total_page = ceil($length / LIMIT);
     
     echo "<div class='pagination-wrap'>";
+    if (isset($_GET['page']) && intval($_GET['page']) > 1){
+        $page = intval($_GET['page']) - 1;
+        echo "<a href='index.php?page={$page}' class='pagination-btn'>Prev</a>";
+    }
+
     for($btn = 1; $btn<=$total_page; $btn++){
-        echo "<a href='index.php?page={$btn}' class='pagination-btn'>$btn</a>";
+        echo "<a href='index.php?page={$btn}' class='pagination-btn' id='{$btn}'>$btn</a>";
+    }
+
+    if (isset($_GET['page']) && intval($_GET['page']) < $total_page){
+        $page = intval($_GET['page']) + 1;
+        echo "<a href='index.php?page={$page}' class='pagination-btn'>Next</a>";
     }
     echo "</div>";
 

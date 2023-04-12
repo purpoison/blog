@@ -13,15 +13,16 @@
         die("Error! Code: {$e->getCode()}. Message: {$e->getMessage()}".PHP_EOL);
     }
 
-    $sql = "SELECT * FROM posts ORDER BY id DESC LIMIT 0, 1";
+    $sql = "SELECT * FROM posts";
 
     $sth = $dbh->query($sql, PDO::FETCH_ASSOC);
     $length = 0;
     if ($sth) {
         foreach ($sth as $row) {
-            $length = $row['id'];
+            $length++;
         }
     }
+    echo $length;
     $total_page = ceil($length / LIMIT);
     
     echo "<div class='pagination-wrap'>";

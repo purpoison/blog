@@ -22,15 +22,11 @@
                     <input type="search" name="search" placeholder="Search" >
                     <input class="search-btn" type="submit" value="">
                 </form>
-                <button class="create-btn">Create post</button>
+                <a href= "/createform.php" class="create-btn">Create post</a>
             </div>
         </header>
-        <div class="flex-box">    
-            <?php require_once __DIR__.'/show.php' ?>
-        </div>
     </div>
-        <?php require_once __DIR__.'/pagination.php'?>
-    </div>
+    <?php require_once __DIR__.'/view.php'?>
     <script>
         let urlString = document.location.search;
         let pageId = urlString.split('=').pop();

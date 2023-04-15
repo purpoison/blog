@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__.'/const.php';
+    require_once __DIR__.'../../const.php';
 
     $dsn = 'mysql:host=localhost;dbname=blog';
     $user = 'root';

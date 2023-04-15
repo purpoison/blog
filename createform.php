@@ -1,7 +1,7 @@
-<?php require_once __DIR__.'/create.php';?>
+<?php require_once __DIR__.'/action/create.php';?>
 <link href="css/style.css" rel="stylesheet">
 <div class="container create-container">
-    <form action="/create.php" method="POST">
+    <form action="/action/create.php" method="POST">
         <h2>Create a new article!</h2>
         <div class="flex-box dropbox-wrap">
             <div class="dropbox-item">

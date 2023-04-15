@@ -18,9 +18,9 @@
                 </ul>
             </nav>
             <div class="form-wrap d-flex">
-                <form  role="search" action="search.php" method="POST">
-                    <input type="search" name="search" placeholder="Search" >
-                    <input class="search-btn" type="submit" value="">
+                <form  role="search" action="/search.php" method="POST">
+                    <input type="search" name="search" placeholder="Search">
+                    <input class="search-btn" type="submit" name="btn-sumit" value="">
                 </form>
                 <a href= "/createform.php" class="create-btn">Create post</a>
             </div>

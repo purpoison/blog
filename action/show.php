@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/const.php';
+require_once __DIR__.'../../const.php';
 
 // 1 ----> 0, 9
 // 2 ----> 9, 9

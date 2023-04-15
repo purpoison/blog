@@ -18,12 +18,12 @@ if (isset($_POST['btn-sumit'])){
                 <div class='search-item'>
                     <h5 class='title'>{$post->title}</h5>
                     <div class='search-sub-title'>
-                        <span>{$post->name}</span> <span style='color: grey'>{$date[0]}</span>
+                        <span class='author'>{$post->name}</span> <span style='color: grey'>{$date[0]}</span>
                     </div>
                     <p class='text'>
                     {$post->body}
-                        <a href='#'>more</a>
                     </p>
+                    <a href='#'>more</a>
                     <hr>
                 </div>";
         }

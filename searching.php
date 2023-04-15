@@ -1,30 +1,11 @@
 <?php
+require_once __DIR__.'/functions.php';  
 
 if (isset($_POST['btn-sumit'])){
     $searchWords = $_POST['search'];
 
-    $dsn = 'mysql:host=localhost;dbname=blog';
-    $user = 'root';
-    $password = '';
-
-    try {
-        $dbh = new PDO($dsn, $user, $password, [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
-    } catch (PDOException $e) {    
-        die("Error! Code: {$e->getCode()}. Message: {$e->getMessage()}".PHP_EOL);
-    }
-
-    $sql = "SELECT posts.*, authors.name, authors.email FROM posts JOIN authors ON posts.author_id = authors.id WHERE posts.body LIKE '%{$searchWords}%' OR posts.body LIKE '%{$searchWords}%' OR authors.name LIKE '%{$searchWords}%' ORDER BY posts.date DESC ;";
-
-    try {
-        
-        $sth = $dbh->query($sql);
-        
-    } catch (PDOException $e) {
-        die("Error! Code: {$e->getCode()}. Message: {$e->getMessage()}".PHP_EOL);
-        exit;
-    }
+    $dbh = connectToDatabase();
+    $sth = searchRezult($dbh, $searchWords);
 
     if ($sth->rowCount()) {
         $allRows = $sth->fetchAll(PDO::FETCH_OBJ);

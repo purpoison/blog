@@ -1,7 +1,11 @@
-<?php require_once __DIR__.'/action/create.php';?>
-<link href="css/style.css" rel="stylesheet">
+
+<link href="../css/style.css" rel="stylesheet">
+<?php require_once __DIR__.'/header.php';
+      require_once __DIR__.'/../functions.php';  
+?>
+
 <div class="container create-container">
-    <form action="/action/create.php" method="POST">
+    <form action="/../create.php" method="POST">
         <h2>Create a new article!</h2>
         <div class="flex-box dropbox-wrap">
             <div class="dropbox-item">
@@ -21,7 +25,8 @@
                 <br>
                 <select name="author" id="author">
                     <?php
-                        $authors = getAuthorsList();
+                        $dbh = connectToDatabase();
+                        $authors = getAuthorsList($dbh);
                         foreach ($authors as $author):?>
                         <option value='<?= $author['id'] ?>'><?= $author['name'] ?> </option>;
                     <?php endforeach;?>

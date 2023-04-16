@@ -9,7 +9,8 @@ if (isset($_POST['btn-sumit'])){
 
     if ($sth->rowCount()) {
         $allRows = $sth->fetchAll(PDO::FETCH_OBJ);
-        echo "<h2 class='search-title'>{$searchWords}</h2> <span class='amount'>({$sth->rowCount()})</span>
+        $counter = $sth->rowCount();
+        echo "<h2 class='search-title'>{$searchWords}</h2> <span class='amount'>({$counter})</span>
         <div class='search-container'>";
         
         foreach ($allRows as $post) {
@@ -23,7 +24,7 @@ if (isset($_POST['btn-sumit'])){
                     <p class='text'>
                     {$post->body}
                     </p>
-                    <a href='#'>more</a>
+                   
                     <hr>
                 </div>";
         }

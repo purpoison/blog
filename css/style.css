@@ -142,6 +142,7 @@ img{
 }
 .search-title{
     display: inline-block;
+    margin-top: 0;
 }
 .search-container{
     padding: 20px;
@@ -162,4 +163,7 @@ img{
 }
 .searchingWord{
     background-color: #f3cf13;
+}
+.hidden{
+    display: none;
 }
